@@ -1,0 +1,129 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  color: #edf6fc;
+  background: #08111d;
+  --ink: #08111d;
+  --ice: #b6e8f6;
+  --soft: #aabfce;
+  --line: #6886a161;
+  --gold: #e6c88a;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: default; opacity: .55; }
+button:focus-visible, a:focus-visible, label:focus-within { outline: 2px solid #f8dea0; outline-offset: 4px; }
+.masthead {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 70px; padding: 12px clamp(16px, 5vw, 68px);
+  border-bottom: 1px solid var(--line); background: #08111dec;
+}
+.brand img { width: 146px; height: auto; display: block; }
+.recharge, .primary, .quiet {
+  min-height: 42px; padding: 8px 16px;
+  border: 1px solid var(--line); color: #edf6fc;
+}
+.recharge { display: flex; align-items: center; gap: 8px; background: #223143; border-color: #c8a767; color: #ffe6a7; font-weight: 700; }
+.recharge img { width: 28px; height: 28px; object-fit: contain; }
+.primary {
+  background: linear-gradient(118deg, #bdeafa, #6bb0d4); border-color: #d5f6ff;
+  color: #0b2336; font-weight: 750; box-shadow: 0 3px 14px #2ca7f135;
+}
+.primary:hover:not(:disabled) { background: #d8f5ff; }
+.quiet { background: #142337; color: var(--ice); }
+.quiet:hover, .recharge:hover { background: #30485d; }
+.lobby {
+  min-height: calc(100svh - 70px); display: grid; align-items: center;
+  padding: 60px clamp(18px, 8vw, 115px);
+  background: linear-gradient(90deg, #07101ee8, #07101eaa 44%, #07101e15 84%), url('frostfire.jpg') center center / cover;
+}
+.lobby-copy { max-width: 540px; }
+.mode { color: var(--gold); letter-spacing: .24em; font-size: .8rem; font-weight: 700; }
+.lobby h1 { margin: 12px 0; font-size: clamp(44px, 8vw, 90px); line-height: 1.06; letter-spacing: -.045em; }
+.lobby-copy > p:not(.mode) { color: #d0e2ee; line-height: 1.7; }
+.factions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0 20px; padding: 0; border: 0; }
+.factions legend { margin: 0 0 8px; color: var(--soft); font-size: .82rem; }
+.faction {
+  min-height: 84px; display: flex; align-items: center; gap: 12px;
+  padding: 8px; background: #0e1b2cdd; border: 1px solid var(--line); cursor: pointer;
+}
+.faction:has(input:checked) { background: #243d53e8; border-color: var(--ice); }
+.faction input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.faction img { width: 54px; height: 62px; object-fit: contain; image-rendering: pixelated; }
+.faction small { display: block; color: var(--soft); padding-top: 3px; }
+.lobby .primary { width: min(245px, 100%); min-height: 56px; }
+.lobby-status:empty { display: none; }
+.arena { width: min(100%, 1020px); padding: 14px clamp(8px, 3vw, 28px) 30px; margin: 0 auto; }
+.arena-top, .players { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.arena-top { margin-bottom: 8px; color: var(--soft); font-size: .88rem; }
+.arena-top strong { color: var(--ice); }
+.players { border: 1px solid var(--line); border-bottom: 0; background: #111e2e; padding: 3px 12px; }
+.player { display: flex; align-items: center; gap: 8px; color: var(--ice); min-width: 0; }
+.player-2 { color: #f3a58c; flex-direction: row-reverse; text-align: right; }
+.player-name { font-size: .88rem; font-weight: 700; }
+.player-stats { font-size: .78rem; white-space: nowrap; }
+.sprite { image-rendering: pixelated; object-fit: contain; }
+.player .sprite { width: 30px; height: 37px; }
+.player-2 .sprite { transform: scaleX(-1); }
+.board {
+  display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
+  padding: clamp(3px, 1.5vw, 16px); gap: 2px;
+  border: 1px solid var(--line);
+  background: linear-gradient(#101a2d48, #101a2d95), url('battlefield.png') center / cover, #1b3042;
+}
+.tile {
+  position: relative; display: grid; place-items: center;
+  aspect-ratio: 1.31; min-width: 0; padding: 0;
+  color: #e5f6ff; background: #11263b70; border: 1px solid #96bed84d;
+}
+.tile:nth-child(even) { background: #172d43a8; }
+.tile.ally { background: #2b6980a8; border-color: #79cce891; }
+.tile.enemy { background: #743d3da8; border-color: #e89c8480; }
+.tile .sprite { width: 78%; height: 83%; position: absolute; bottom: 11%; }
+.tile.enemy .sprite { transform: scaleX(-1); }
+.tile.general { border-bottom: 2px solid var(--gold); }
+.tile.target { background: #578b73c9; border-color: #ccffd9; }
+.tile:hover { border-color: var(--ice); }
+.tile.selected, .card.selected { border-color: #ffe6a7; box-shadow: inset 0 0 0 1px #ffe6a7; }
+.unit-stats {
+  position: absolute; bottom: 0; inset-inline: 0;
+  font-size: clamp(8px, 1.6vw, 13px); font-weight: 750; color: #fff;
+  background: #05121bc9; line-height: 1.35;
+}
+.mana-orb { color: #8be4ff; text-shadow: 0 0 12px #41baff; font-size: clamp(9px, 2.5vw, 22px); }
+.notice { min-height: 1.4em; color: var(--ice); font-size: .9rem; margin: 10px 0; }
+.battle-bottom { display: flex; gap: 10px; align-items: start; justify-content: space-between; }
+.hand { display: flex; flex: 1; gap: 6px; min-width: 0; overflow-x: auto; padding: 2px; }
+.card {
+  width: clamp(70px, 11vw, 106px); flex: none;
+  display: grid; position: relative; place-items: center; align-content: center;
+  min-height: 86px; padding: 4px 3px;
+  color: #ebf6fc; background: linear-gradient(150deg, #263e57, #142233); border: 1px solid var(--line);
+}
+.card .sprite { width: 43px; height: 46px; }
+.card.expensive { background: #192534; }
+.card.signature { border-color: #cbac72; }
+.card-name { font-size: .68rem; text-align: center; line-height: 1.2; }
+.card-cost { position: absolute; left: 4px; top: 3px; font-weight: 750; color: var(--ice); }
+.battle-controls { display: grid; gap: 6px; flex: none; }
+.inspector { min-height: 1em; color: var(--soft); font-size: .84rem; line-height: 1.5; }
+@media (max-width: 600px) {
+  .masthead { min-height: 60px; }
+  .brand img { width: 116px; }
+  .lobby { min-height: calc(100svh - 60px); background-position: 60% center; }
+  .faction { gap: 4px; }
+  .faction img { width: 43px; }
+  .players { padding: 3px 4px; }
+  .player { flex-wrap: wrap; gap: 2px 5px; }
+  .player-name { font-size: .7rem; }
+  .player .sprite { width: 21px; height: 29px; }
+  .player-stats { font-size: .68rem; }
+  .battle-bottom { flex-direction: column; }
+  .hand, .battle-controls { width: 100%; }
+  .battle-controls { display: flex; flex-wrap: wrap; }
+  .battle-controls .primary { flex: 1; }
+}

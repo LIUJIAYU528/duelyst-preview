@@ -1,0 +1,314 @@
+@charset "UTF-8";
+.test-recharge-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(224px, 100%);
+  min-height: 56px;
+  margin: 4px 0 10px;
+  padding: 4px 12px 4px 5px;
+  color: #ecfaff;
+  text-align: left;
+  border: 1px solid #579ab9;
+  border-left: 3px solid #a0e5ff;
+  background: linear-gradient(110deg, #1b3d58, #142439 82%);
+  box-shadow: 0 0 20px rgba(88, 189, 255, 0.1333333333), inset 0 0 20px rgba(88, 189, 255, 0.0784313725);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.main-menu .test-recharge-entry {
+  margin-left: -8rem;
+}
+
+.test-recharge-entry:hover,
+.test-recharge-entry:focus-visible {
+  border-color: #b2eaff;
+  background: linear-gradient(110deg, #285673, #18304b 82%);
+  box-shadow: 0 0 24px rgba(88, 189, 255, 0.3333333333);
+}
+
+.test-recharge-entry img {
+  width: 49px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.test-recharge-entry strong,
+.test-recharge-entry small {
+  display: block;
+  line-height: 1.45;
+}
+
+.test-recharge-entry strong {
+  font-size: 18px;
+}
+
+.test-recharge-entry small {
+  color: #aed1e4;
+  font-size: 12px;
+}
+
+.test-recharge-chevron {
+  margin-left: auto;
+  font-size: 26px;
+}
+
+.test-recharge-wallet {
+  min-height: 40px;
+  padding: 5px 9px;
+  color: #d8f3ff;
+  border: 1px solid #467a98;
+  background: #15283f;
+}
+
+.test-recharge-wallet strong {
+  margin-left: 5px;
+  color: #b9e9ff;
+}
+
+.test-recharge-dialog {
+  box-sizing: border-box;
+  width: min(680px, 100% - 24px);
+  max-width: none;
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  color: #edf6ff;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.45;
+  border: 1px solid #4a6c8a;
+  border-top: 2px solid #8edaff;
+  background: linear-gradient(150deg, #213952, #0d1728 57%);
+  box-shadow: 0 18px 78px rgba(5, 9, 18, 0.8117647059), 0 0 30px rgba(96, 186, 255, 0.1333333333);
+  overflow: auto;
+}
+
+.test-recharge-dialog::backdrop {
+  background: rgba(5, 8, 17, 0.6666666667);
+  backdrop-filter: blur(4px);
+}
+
+.test-recharge-form {
+  margin: 0;
+}
+
+.test-recharge-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 19px 23px 13px;
+  border-bottom: 1px solid rgba(65, 96, 120, 0.5333333333);
+}
+
+.test-recharge-header h2 {
+  margin: 0;
+  color: #f1faff;
+  font-size: clamp(23px, 4.3vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+
+.test-recharge-header p {
+  margin: 5px 0 0;
+  color: #a9c5d8;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.test-recharge-close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: #d3eafa;
+  font-size: 28px;
+  line-height: 1;
+  border: 1px solid #496780;
+  background: #0d1a29;
+  cursor: pointer;
+}
+
+.test-recharge-close:hover {
+  color: white;
+  border-color: #a0dbf5;
+}
+
+.test-recharge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  min-width: 0;
+  margin: 0;
+  padding: 14px 23px;
+  border: 0;
+}
+
+.test-recharge-option {
+  display: block;
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.test-recharge-option input,
+.test-recharge-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.test-recharge-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 108px;
+  padding: 3px 4px 6px;
+  border: 1px solid #3a4f68;
+  background: radial-gradient(ellipse at 50% 30%, #34416c, #111d31 75%);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.test-recharge-tile img {
+  width: 100%;
+  height: 56px;
+  object-fit: contain;
+}
+
+.test-recharge-quantity {
+  color: #c2d4e5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.test-recharge-quantity small {
+  color: #a6c0d4;
+  font-size: 10px;
+}
+
+.test-recharge-tile strong {
+  margin-top: 4px;
+  color: #f5faff;
+  font-size: clamp(15px, 3.5vw, 20px);
+}
+
+.test-recharge-option:hover .test-recharge-tile {
+  border-color: #8bbfdd;
+}
+
+.test-recharge-option input:checked + .test-recharge-tile {
+  border-color: #b2eaff;
+  background: radial-gradient(ellipse at 50% 25%, #3a5982, #14243a 76%);
+  box-shadow: inset 0 0 18px rgba(122, 202, 255, 0.1450980392), 0 0 10px rgba(122, 202, 255, 0.1568627451);
+}
+
+.test-recharge-option input:checked + .test-recharge-tile::after {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  color: #c1f0ff;
+  content: "✓";
+  font-size: 13px;
+}
+
+.test-recharge-dialog button:focus-visible,
+.test-recharge-option input:focus-visible + .test-recharge-tile {
+  outline: 2px solid #dcf6ff;
+  outline-offset: 2px;
+}
+
+.test-recharge-footer {
+  padding: 9px 23px 15px;
+  border-top: 1px solid #3a526c;
+}
+
+.test-recharge-status {
+  min-height: 1.5em;
+  margin: 0 0 8px;
+  color: #bed0df;
+  font-size: 12px;
+}
+
+.test-recharge-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.test-recharge-summary span {
+  display: block;
+  color: #aac6da;
+  font-size: 11px;
+}
+
+.test-recharge-summary strong {
+  color: #edfaff;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.test-recharge-submit {
+  min-width: 150px;
+  min-height: 42px;
+  padding: 8px 16px;
+  color: #092438;
+  border: 1px solid #c1ebff;
+  background: linear-gradient(#bfe8ff, #7fc2e5);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.test-recharge-submit:hover:enabled {
+  background: #d3f0ff;
+}
+
+.test-recharge-dialog button:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+@media (max-width: 480px) {
+  .test-recharge-header, .test-recharge-footer {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .test-recharge-grid {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .test-recharge-tile {
+    min-height: 94px;
+  }
+  .test-recharge-tile img {
+    height: 47px;
+  }
+  .test-recharge-submit {
+    min-width: 0;
+  }
+}
+@media (max-height: 520px) and (min-width: 481px) {
+  .test-recharge-header, .test-recharge-footer {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .test-recharge-grid {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 6px;
+  }
+  .test-recharge-tile {
+    min-height: 73px;
+  }
+  .test-recharge-tile img {
+    height: 33px;
+  }
+}
